@@ -11,7 +11,7 @@ source("EpsilonGreedy.R")
 ######## Task 1 
 # Create a variable called 'cores' here to specify the number of cores you want 
 # to use. Then, check out the function RegisterDoParallel() to activate them
-cores <- "xx"
+cores <- 5
 
 
 ######## Task 2

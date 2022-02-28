@@ -11,8 +11,7 @@ source("EpsilonGreedy.R")
 ######## Task 1 
 # Create a variable called 'cores' here to specify the number of cores you want 
 # to use. Then, check out the function RegisterDoParallel() to activate them
-cores <- 5
-
+cores <- "xx"
 
 ######## Task 2
 # Run the simulation
@@ -30,15 +29,15 @@ epsilon <- "xx"
 set.seed(42, kind = "L'Ecuyer-CMRG") 
 
 # Run the simulation in parallel here using the foreach command. 
-# Use .combine = 'rbind'. argument to merge the output. Call the object 'output'.
-
-output <- ...
-#run_simulation(horizon = horizon, p = p, epsilon = epsilon)
+# Use .combine = 'rbind'. argument to merge the output. 
+output <- foreach(i = 1:n_sims, .combine = 'rbind') %dopar% {
+  run_simulation(horizon = horizon, p = p, epsilon = epsilon) 
+}
 
 ######## Task 3
 # Calculate the mean regret and save it in an R object 
 final_output <- colMeans(output)
-output_name <- ... 
-saveRDS(...)
+output_name <- paste0("Res/EspilonGreedy_", slurm_id, ".rds")
+saveRDS(output_name)
 
 

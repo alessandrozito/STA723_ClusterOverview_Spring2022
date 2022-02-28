@@ -1,14 +1,14 @@
 # Files to aggregate 
-f <- c()
+f <- list.files('Res/')
+f <- f[stringr::str_detect('.rds')]
+
+out <- ...
 
 # Read into memory
 for (i in seq_along(f)) {
   next
 }
 
-# Process
-
-# Save 
-# saveRDS()
+saveRDS(out, 'bandits_output.rds')
 
 # Delete individual simulation files (dangerous!)

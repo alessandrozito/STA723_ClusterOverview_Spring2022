@@ -21,8 +21,8 @@ n_sims <- "xx"    # Number of simulations
 horizon <- "xx"  # Horizon of the experiment
 p <- "xx"          # Number of arms
 
-# Set here the  number of values
-epsilon_values <- c(0.01, 0.05, 0.1, 0.15)
+# Set here the number of values
+epsilon_values <- c(-0.01, 0.01, 0.05, 0.1, 0.15)
 epsilon <- "xx"
 
 # This seed ensures reproducibility with the doParallel interface

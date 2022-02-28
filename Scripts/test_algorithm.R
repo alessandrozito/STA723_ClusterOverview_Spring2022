@@ -36,7 +36,7 @@ output <- foreach(i = 1:n_sims, .combine = 'rbind') %dopar% {
 
 ######## Task 3
 # Calculate the mean regret and save it in an R object 
-final_output <- colMeans(output)
+final_output <- list("epsilon" = epsilon, "result" = colMeans(output))
 output_name <- paste0("Res/EspilonGreedy_", slurm_id, ".rds")
 saveRDS(output_name)
 

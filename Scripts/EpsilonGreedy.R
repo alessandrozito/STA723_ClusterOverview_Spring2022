@@ -13,7 +13,7 @@ sample_true_probs <- function(p) {
 choose_arm <- function(mu, epsilon) {
   # Toss a coin
   p <- length(mu)
-  change <- runif(1) < epsilon
+  change <- as.logical(rbinom(1, 1, epsilon))
   if (change) {
     # Select one arm at random
     chosen_arm <- sample(1:p, 1)
@@ -40,6 +40,7 @@ update_success_prob <- function(reward, mu, pulls, chosen_arm) {
 
 # Run the simulation
 run_simulation <- function(horizon, p, epsilon) {
+  
   # Step 0 - Generate the "true probability" vectors
   true_probs <- sample_true_probs(p)
   best_prob <- max(true_probs)
